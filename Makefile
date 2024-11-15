@@ -44,7 +44,7 @@ fclean: clean
 	rm -f $(NAME)
 	@make -C includes/Libft fclean
 	@make -C includes/ft_printf fclean
-	@make -C includes/mlx fclean
+	@make -C includes/mlx clean
 
 re: fclean all
 
