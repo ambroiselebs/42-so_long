@@ -1,1 +1,1 @@
-find . -path "./mlx" -prune -o \( -name "*.c" -o -name "*.h" \) -print | xargs norminette
+find . -path "./includes/mlx" -prune -o \( -name "*.c" -o -name "*.h" \) -print | xargs norminette
