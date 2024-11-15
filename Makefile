@@ -10,7 +10,7 @@ SRC         = main.c \
               src/init/window_init.c src/init/program_init.c \
               src/map/map_init.c src/map/map_update.c \
               src/player/player_init.c src/player/player_gesture.c \
-              src/gnl/get_next_line.c
+              includes/gnl/get_next_line.c
 OBJ         = $(SRC:.c=.o)
 LIBFT       = includes/Libft/libft.a
 FT_PRINTF   = includes/ft_printf/libftprintf.a

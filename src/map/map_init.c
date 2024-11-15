@@ -6,12 +6,12 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 03:45:22 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/15 06:00:29 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/15 23:11:43 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
-#include "../gnl/get_next_line.h"
+#include "../../includes/gnl/get_next_line.h"
 #include "ft_printf.h"
 #include "libft.h"
 #include <fcntl.h>
