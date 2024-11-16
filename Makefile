@@ -1,6 +1,6 @@
 NAME        = so_long
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -O3
+CFLAGS      = -O3
 INCLUDES    = -Iincludes/mlx -Iincludes/mlx_linux -Iincludes/Libft -Iincludes/ft_printf/include
 LIBS        = -Lincludes/mlx -lmlx -lX11 -lXext -lXrandr -lm \
               -Lincludes/Libft -lft \
@@ -49,7 +49,7 @@ fclean: clean
 re: fclean all
 
 run: $(LIBFT) $(FT_PRINTF) $(MLX) $(NAME)
-	./$(NAME) map/test2.ber
+	./$(NAME) maps/test2.ber
 	make fclean
 
 .PHONY: all clean fclean re

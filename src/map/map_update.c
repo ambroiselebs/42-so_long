@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:24:24 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/15 06:12:19 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/16 21:41:31 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	draw_map(t_game *game, t_player *player)
 		while (x < game->win_width)
 		{
 			put_texture(game->map[y][x], x, y, &put_texture_params);
+			if (game->map[y][x] == 'C')
+				game->total_coin++;
 			x++;
 		}
 		y++;

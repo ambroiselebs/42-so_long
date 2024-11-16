@@ -6,13 +6,14 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:09:54 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/15 06:40:35 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/16 21:38:55 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exit.h"
 #include <stdlib.h>
 #include "mlx.h"
+#include "ft_printf.h"
 
 void	free_map(t_game *game)
 {
@@ -33,6 +34,7 @@ void	free_map(t_game *game)
 
 int	exit_game(t_exit_game_params *params)
 {
+	ft_printf("Total movements : %d\n", params->player->movement_count);
 	mlx_destroy_window(params->game->mlx, params->game->mlx_win);
 	mlx_destroy_image(params->game->mlx, params->game->ground_sprite);
 	mlx_destroy_image(params->game->mlx, params->game->wall_sprite);
