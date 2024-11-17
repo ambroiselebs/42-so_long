@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:14:36 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 01:54:49 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:32:07 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "mlx.h"
 #include "ft_printf.h"
 #include <stdlib.h>
+#include "../exit_game/exit.h"
 
 void	load_player_skin(t_game *game, t_player *player)
 {
@@ -36,7 +37,6 @@ void	locate_player(t_game *game, t_player *player)
 			{
 				player->pos_x = x;
 				player->pos_y = y;
-				return ;
 			}
 			x++;
 		}

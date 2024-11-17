@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:09:54 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 02:15:00 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:41:34 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	free_map(t_game *game)
 
 int	exit_game(t_exit_game_params *params)
 {
-	ft_printf("Total movements : %d\n", params->player->movement_count);
+	if (params->player->movement_count != -1)
+		ft_printf("Total movements : %d\n", params->player->movement_count);
 	mlx_destroy_window(params->game->mlx, params->game->mlx_win);
 	mlx_destroy_image(params->game->mlx, params->game->ground_sprite);
 	mlx_destroy_image(params->game->mlx, params->game->wall_sprite);

@@ -6,13 +6,67 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:24:24 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 02:14:21 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:40:45 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 #include "mlx.h"
 #include "ft_printf.h"
+#include "../exit_game/exit.h"
+
+void	check_player(int *player_spawn, t_game *game, t_player *player)
+{
+	t_exit_game_params	params;
+
+	params.game = game;
+	params.player = player;
+	if (*player_spawn > 0)
+	{
+		ft_printf("Error\nToo many player spawn\n");
+		exit_game(&params);
+	}
+	(*player_spawn)++;
+}
+
+void	check_exit(int *exit, t_game *game, t_player *player)
+{
+	t_exit_game_params	params;
+
+	params.game = game;
+	params.player = player;
+	if (*exit > 0)
+	{
+		ft_printf("Error\nToo exit point\n");
+		exit_game(&params);
+	}
+	(*exit)++;
+}
+
+void	check_map(t_game *game, t_player *player)
+{
+	int	x;
+	int	y;
+	int	player_spawn;
+	int	exit;
+
+	y = 0;
+	player_spawn = 0;
+	exit = 0;
+	while (y < game->win_height)
+	{
+		x = 0;
+		while (x < game->win_width)
+		{
+			if (game->map[y][x] == 'P')
+				check_player(&player_spawn, game, player);
+			if (game->map[y][x] == 'E')
+				check_exit(&exit, game, player);
+			x++;
+		}
+		y++;
+	}
+}
 
 void	put_texture(char c, int pos_x, int pos_y, t_put_texture_params *params)
 {
@@ -49,6 +103,7 @@ void	draw_map(t_game *game, t_player *player)
 	int						x;
 	int						y;
 
+	check_map(game, player);
 	y = 0;
 	put_texture_params.game = game;
 	put_texture_params.player = player;
