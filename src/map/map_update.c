@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:24:24 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 02:40:45 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:44:34 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,27 @@
 #include "ft_printf.h"
 #include "../exit_game/exit.h"
 
-void	check_player(int *player_spawn, t_game *game, t_player *player)
+void	exit_error(t_game *game, t_player *player, char *msg)
 {
 	t_exit_game_params	params;
 
 	params.game = game;
 	params.player = player;
+	ft_printf("Error\n%s\n", msg);
+	exit_game(&params);
+}
+
+void	check_player(int *player_spawn, t_game *game, t_player *player)
+{
 	if (*player_spawn > 0)
-	{
-		ft_printf("Error\nToo many player spawn\n");
-		exit_game(&params);
-	}
+		exit_error(game, player, "Too many player spawn");
 	(*player_spawn)++;
 }
 
 void	check_exit(int *exit, t_game *game, t_player *player)
 {
-	t_exit_game_params	params;
-
-	params.game = game;
-	params.player = player;
 	if (*exit > 0)
-	{
-		ft_printf("Error\nToo exit point\n");
-		exit_game(&params);
-	}
+		exit_error(game, player, "Too many exit");
 	(*exit)++;
 }
 
@@ -66,6 +62,10 @@ void	check_map(t_game *game, t_player *player)
 		}
 		y++;
 	}
+	if (player_spawn == 0)
+		exit_error(game, player, "No player spawn");
+	if (exit == 0)
+		exit_error(game, player, "No exit");
 }
 
 void	put_texture(char c, int pos_x, int pos_y, t_put_texture_params *params)
