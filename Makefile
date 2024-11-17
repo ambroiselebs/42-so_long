@@ -1,6 +1,6 @@
 NAME        = so_long
 CC          = cc
-CFLAGS      = -O3
+CFLAGS      = -Wall -Wextra -Werror -O3
 INCLUDES    = -Iincludes/mlx -Iincludes/mlx_linux -Iincludes/Libft -Iincludes/ft_printf/include
 LIBS        = -Lincludes/mlx -lmlx -lX11 -lXext -lXrandr -lm \
               -Lincludes/Libft -lft \
