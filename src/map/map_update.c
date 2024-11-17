@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:24:24 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/16 21:41:31 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:14:21 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ void	put_texture(char c, int pos_x, int pos_y, t_put_texture_params *params)
 	else if (c == '1')
 		mlx_put_image_to_window(params->game->mlx, params->game->mlx_win,
 			params->game->wall_sprite,
+			pos_x * params->game->tile_size,
+			pos_y * params->game->tile_size);
+	else if (c == 'C')
+		mlx_put_image_to_window(params->game->mlx, params->game->mlx_win,
+			params->game->coin_sprite,
+			pos_x * params->game->tile_size,
+			pos_y * params->game->tile_size);
+	else if (c == 'E')
+		mlx_put_image_to_window(params->game->mlx, params->game->mlx_win,
+			params->game->exit_sprite,
 			pos_x * params->game->tile_size,
 			pos_y * params->game->tile_size);
 }

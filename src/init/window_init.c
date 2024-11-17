@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:44:38 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/15 06:04:02 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:22:40 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,8 @@ void	init_window(t_game *game)
 			"assets/ground.xpm", &game->tile_size, &game->tile_size);
 	game->wall_sprite = mlx_xpm_file_to_image(game->mlx,
 			"assets/wall.xpm", &game->tile_size, &game->tile_size);
+	game->coin_sprite = mlx_xpm_file_to_image(game->mlx,
+			"assets/coin.xpm", &game->tile_size, &game->tile_size);
+	game->exit_sprite = mlx_xpm_file_to_image(game->mlx,
+			"assets/exit.xpm", &game->tile_size, &game->tile_size);
 }

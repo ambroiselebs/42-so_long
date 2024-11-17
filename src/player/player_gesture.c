@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 06:18:44 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 01:10:54 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 01:55:17 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	handle_player_movement(int key, t_player_movement_params *params)
 		exit_game(&exit_params);
 	}
 	params->player->movement_count++;
+	if (params->player->movement_count > 0)
+		ft_printf("Ta bouger %d fois\n", params->player->movement_count);
 	new_x = params->player->pos_x;
 	new_y = params->player->pos_y;
 	if (key == 'w')

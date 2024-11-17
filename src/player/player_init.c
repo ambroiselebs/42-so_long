@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:14:36 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/16 21:37:41 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 01:54:49 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	init_player(t_game *game, t_player *player)
 	locate_player(game, player);
 	load_player_skin(game, player);
 	player->coins = 0;
-	player->movement_count = 0;
+	player->movement_count = -1;
 }

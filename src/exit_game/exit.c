@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:09:54 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/16 21:38:55 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:15:00 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	exit_game(t_exit_game_params *params)
 	mlx_destroy_window(params->game->mlx, params->game->mlx_win);
 	mlx_destroy_image(params->game->mlx, params->game->ground_sprite);
 	mlx_destroy_image(params->game->mlx, params->game->wall_sprite);
+	mlx_destroy_image(params->game->mlx, params->game->coin_sprite);
+	mlx_destroy_image(params->game->mlx, params->game->exit_sprite);
 	mlx_destroy_image(params->game->mlx, params->player->skin);
 	free_map(params->game);
 	exit(0);
