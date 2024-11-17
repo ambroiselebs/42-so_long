@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 06:18:44 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/16 21:39:46 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/17 01:10:54 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	perform_movement(t_game *game, t_player *player, t_player_perform *cord)
 	game->map[cord->new_y][cord->new_x] = 'P';
 	game->map[player->pos_y][player->pos_x] = '0';
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
-			player->skin, 
-			cord->new_x * game->tile_size, 
-			cord->new_y * game->tile_size);
+		player->skin,
+		cord->new_x * game->tile_size,
+		cord->new_y * game->tile_size);
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
-			game->ground_sprite, 
-			player->pos_x * game->tile_size, 
-			player->pos_y * game->tile_size);
+		game->ground_sprite,
+		player->pos_x * game->tile_size,
+		player->pos_y * game->tile_size);
 	player->pos_x = cord->new_x;
 	player->pos_y = cord->new_y;
 }
@@ -45,7 +45,9 @@ void	handle_collision(t_game *game, t_player *player, int new_x, int new_y)
 			exit_params.game = game;
 			exit_params.player = player;
 			exit_game(&exit_params);
-		} else if (game->map[new_y][new_x] == 'E' && player->coins != game->total_coin)
+		}
+		else if (game->map[new_y][new_x] == 'E'
+			&& player->coins != game->total_coin)
 			return ;
 		else if (game->map[new_y][new_x] == 'C')
 			player->coins++;
