@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:24:24 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 02:44:34 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:01:36 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 #include "mlx.h"
 #include "ft_printf.h"
 #include "../exit_game/exit.h"
-
-void	exit_error(t_game *game, t_player *player, char *msg)
-{
-	t_exit_game_params	params;
-
-	params.game = game;
-	params.player = player;
-	ft_printf("Error\n%s\n", msg);
-	exit_game(&params);
-}
 
 void	check_player(int *player_spawn, t_game *game, t_player *player)
 {
