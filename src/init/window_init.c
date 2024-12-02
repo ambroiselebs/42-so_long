@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:44:38 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 07:30:54 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:39:22 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 void	init_window(t_game *game)
 {
+	game->coin_found = 0;
+	game->exit_found = 0;
+	game->player_found = 0;
 	game->tile_size = 32;
 	game->total_coin = 0;
 	game->mlx = mlx_init();

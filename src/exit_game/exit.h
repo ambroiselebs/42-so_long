@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:10:12 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/15 06:39:57 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:36:09 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_exit_game_params
 	t_player	*player;
 }	t_exit_game_params;
 
-int	exit_game(t_exit_game_params *params);
+int		exit_game(t_exit_game_params *params);
+void	free_copy(t_game *game);
 
 #endif

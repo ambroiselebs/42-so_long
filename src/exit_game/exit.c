@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:09:54 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 05:20:31 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:33:57 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ void	free_map(t_game *game)
 		}
 		free(game->map);
 		game->map = NULL;
+	}
+}
+
+void	free_copy(t_game *game)
+{
+	int	i;
+
+	if (game->map_copy != NULL)
+	{
+		i = 0;
+		while (game->map_copy[i] != NULL)
+		{
+			free(game->map_copy[i]);
+			i++;
+		}
+		free(game->map_copy);
+		game->map_copy = NULL;
 	}
 }
 

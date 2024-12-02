@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:27:19 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 02:14:03 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:35:12 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*mlx_win;
 	char	**map;
+	char	**map_copy;
 	void	*ground_sprite;
 	void	*wall_sprite;
 	void	*coin_sprite;
@@ -26,6 +27,9 @@ typedef struct s_game
 	int		win_height;
 	int		win_width;
 	int		tile_size;
+	int		coin_found;
+	int		exit_found;
+	int		player_found;
 }	t_game;
 
 #endif
