@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:32:55 by aberenge          #+#    #+#             */
-/*   Updated: 2024/12/02 14:19:24 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:30:12 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,6 @@ void	count_coins(t_game *game)
 		}
 		y++;
 	}
-}
-
-void	send_exit_game(t_game *game, t_player *player)
-{
-	t_exit_game_params	params;
-
-	params.game = game;
-	params.player = player;
-	ft_printf("Error\nInvalid map (impossible to complete)\n");
-	free_copy(game);
-	exit_game(&params);
 }
 
 void	flood_fill(t_game *game, int x, int y)
@@ -96,10 +85,10 @@ void	check_path(t_game *game, t_player *player)
 	copy_map(game);
 	flood_fill(game, player->pos_x, player->pos_y);
 	if (game->player_found != 1)
-		send_exit_game(game, player);
+		exit_error(game, player, "Invalid map (impossible to complete)\n");
 	if (game->exit_found != 1)
-		send_exit_game(game, player);
+		exit_error(game, player, "Invalid map (impossible to complete)\n");
 	if (game->coin_found != game->total_coin || game->total_coin == 0)
-		send_exit_game(game, player);
+		exit_error(game, player, "Invalid map (impossible to complete)\n");
 	free_copy(game);
 }

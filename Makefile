@@ -8,7 +8,7 @@ LIBS        = -Lincludes/mlx -lmlx -lX11 -lXext -lXrandr -lm \
 SRC         = main.c \
               src/exit_game/exit.c \
               src/init/window_init.c src/init/program_init.c \
-              src/map/map_init.c src/map/map_update.c src/map/map_check.c src/map/map_exit.c src/map/map_path.c \
+              src/map/map_init.c src/map/map_update.c src/map/map_check.c src/map/map_path.c \
               src/player/player_init.c src/player/player_gesture.c \
               includes/gnl/get_next_line.c
 OBJ         = $(SRC:.c=.o)

@@ -6,13 +6,15 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:44:38 by aberenge          #+#    #+#             */
-/*   Updated: 2024/12/02 13:39:22 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:34:59 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 #include "mlx.h"
 #include "ft_printf.h"
+#include "../exit_game/exit.h"
+#include <stdlib.h>
 
 void	init_window(t_game *game)
 {

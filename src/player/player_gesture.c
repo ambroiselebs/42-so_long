@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 06:18:44 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/17 01:55:17 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:28:48 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 void	perform_movement(t_game *game, t_player *player, t_player_perform *cord)
 {
+	ft_printf("Ta bouger %d fois\n", player->movement_count);
 	game->map[cord->new_y][cord->new_x] = 'P';
 	game->map[player->pos_y][player->pos_x] = '0';
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
@@ -44,6 +45,7 @@ void	handle_collision(t_game *game, t_player *player, int new_x, int new_y)
 		{
 			exit_params.game = game;
 			exit_params.player = player;
+			exit_params.error = 0;
 			exit_game(&exit_params);
 		}
 		else if (game->map[new_y][new_x] == 'E'
@@ -65,11 +67,10 @@ int	handle_player_movement(int key, t_player_movement_params *params)
 	{
 		exit_params.game = params->game;
 		exit_params.player = params->player;
+		exit_params.error = 0;
 		exit_game(&exit_params);
 	}
 	params->player->movement_count++;
-	if (params->player->movement_count > 0)
-		ft_printf("Ta bouger %d fois\n", params->player->movement_count);
 	new_x = params->player->pos_x;
 	new_y = params->player->pos_y;
 	if (key == 'w')

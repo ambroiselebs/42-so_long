@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:26:58 by aberenge          #+#    #+#             */
-/*   Updated: 2024/12/02 13:38:43 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:37:52 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 void	first_init(t_game *game, t_player *player, int argc, char **argv)
 {
-	check_args(argc, argv);
+	check_args(argc);
 	init_map(argv[1], game);
 	init_window(game);
 	init_player(game, player);

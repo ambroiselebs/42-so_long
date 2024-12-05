@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:09:54 by aberenge          #+#    #+#             */
-/*   Updated: 2024/12/02 13:33:57 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:33:25 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ void	free_copy(t_game *game)
 
 int	exit_game(t_exit_game_params *params)
 {
-	if (params->player->movement_count != -1)
+	if (params->error != 1 && params->error != 0)
+		params->error = 0;
+	if (params->player->movement_count != -1 && params->error != 1)
 		ft_printf("Total movements : %d\n", params->player->movement_count);
 	mlx_destroy_window(params->game->mlx, params->game->mlx_win);
 	mlx_destroy_image(params->game->mlx, params->game->ground_sprite);
@@ -64,4 +66,15 @@ int	exit_game(t_exit_game_params *params)
 	free(params->game->mlx);
 	exit(0);
 	return (0);
+}
+
+void	exit_error(t_game *game, t_player *player, char *msg)
+{
+	t_exit_game_params	params;
+
+	params.game = game;
+	params.player = player;
+	params.error = 1;
+	ft_printf("Error\n%s\n", msg);
+	exit_game(&params);
 }

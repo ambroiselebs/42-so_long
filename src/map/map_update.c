@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:24:24 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/20 15:01:36 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:36:01 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,11 @@ void	draw_map(t_game *game, t_player *player)
 		x = 0;
 		while (x < game->win_width)
 		{
+			if (game->map[y][x] != 'E' && game->map[y][x] != 'C'
+				&& game->map[y][x] != 'P' && game->map[y][x] != '0'
+				&& game->map[y][x] != '1')
+				exit_error(game, player, "Invalid map character");
 			put_texture(game->map[y][x], x, y, &put_texture_params);
-			if (game->map[y][x] == 'C')
-				game->total_coin++;
 			x++;
 		}
 		y++;
