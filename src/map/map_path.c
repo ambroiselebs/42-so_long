@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:32:55 by aberenge          #+#    #+#             */
-/*   Updated: 2024/12/06 15:01:37 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:13:44 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,19 @@ void	check_path(t_game *game, t_player *player)
 	copy_map(game);
 	flood_fill(game, player->pos_x, player->pos_y);
 	if (game->player_found != 1)
+	{
+		free_copy(game);
 		exit_error(game, player, "Invalid map (impossible to complete)\n");
+	}
 	if (game->exit_found != 1)
+	{
+		free_copy(game);
 		exit_error(game, player, "Invalid map (impossible to complete)\n");
+	}
 	if (game->coin_found != game->total_coin || game->total_coin == 0)
+	{
+		free_copy(game);
 		exit_error(game, player, "Invalid map (impossible to complete)\n");
+	}
 	free_copy(game);
 }

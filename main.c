@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:26:58 by aberenge          #+#    #+#             */
-/*   Updated: 2024/12/05 16:37:52 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:13:29 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	first_init(t_game *game, t_player *player, int argc, char **argv)
 	init_window(game);
 	init_player(game, player);
 	check_map_pattern(game, player);
+	locate_player(game, player);
 	check_path(game, player);
 	draw_map(game, player);
 }

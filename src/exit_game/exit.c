@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:09:54 by aberenge          #+#    #+#             */
-/*   Updated: 2024/12/06 15:01:25 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:05:55 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	exit_error(t_game *game, t_player *player, char *msg)
 	params.player = player;
 	params.error = 1;
 	ft_printf("Error\n%s\n", msg);
-	if (game->map_copy != NULL)
-		free_copy(game);
+	/* if (game->map_copy != NULL)
+		free_copy(game); */
 	exit_game(&params);
 }

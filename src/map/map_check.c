@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:37:35 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/20 15:02:03 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:05:03 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,22 @@
 
 void	check_rectangular(t_game *game, t_player *player)
 {
-	int	i;
+	int i;
+	int width;
 
-	if (!game->map[0])
-		exit_error(game, player, "Invalid map");
-	i = 1;
+	if (!game->map || !game->map[0])
+		exit_error(game, player, "Invalid map: map is empty");
+
+	width = ft_strlen(game->map[0]);
+	i = 0;
 	while (game->map[i])
 	{
-		if ((int) ft_strlen(game->map[i]) != game->win_width)
-			exit_error(game, player, "Map not rectangular");
+		if ((int)ft_strlen(game->map[i]) != width)
+			exit_error(game, player, "Invalid map: map is not rectangular");
 		i++;
 	}
+	game->win_width = width;
+	game->win_height = i;
 }
 
 void	check_closed(t_game *game, t_player *player)

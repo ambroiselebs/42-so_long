@@ -6,7 +6,7 @@
 /*   By: aberenge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:13:39 by aberenge          #+#    #+#             */
-/*   Updated: 2024/11/16 21:37:33 by aberenge         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:56:24 by aberenge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ typedef struct s_player_perform
 
 void	init_player(t_game *game, t_player *player);
 int		handle_player_movement(int key, t_player_movement_params *params);
+void	locate_player(t_game *game, t_player *player);
 
 #endif
